@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Todo with ID: <a th:text="${todo.id}"></a></h1>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Date of creation</th>
+            <th>Last modified</th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/todoList/{id}(id=${todo.getId()})}" th:utext="${todo.id}">...</a>
+            </th>
+            <th th:utext="${todo.description}">...</th>
+            <th th:utext="${todo?.author?.name}">...</th>
+            <th th:utext="${todo.dateOfCreation}">...</th>
+            <th th:utext="${todo.dateOfChange}">...</th>
+            <th>
+                <a th:href="@{/todoList/{id}/edit(id=${todo.getId()})}">Update</a>
+            </th>
+        </tr>
+    </table>
+</div>
+<h2>
+    <a href="/todoList">Back to list Todo</a>
+</h2>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Todo</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/todoList/{id}(id=${todo.getId()})}" th:object="${todo}">
+    <label for="desc">Enter new description: </label>
+    <input type="text" th:field="*{description}" id="desc"/>
+    <br/>
+    <label for="authorId">Enter new Author ID: </label>
+    <input type="text" th:field="*{author.id}" id="authorId"/>
+    <br/>
+    <label for="authorName">Enter new Author name: </label>
+    <input type="text" th:field="*{author.name}" id="authorName"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>

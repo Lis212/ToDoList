@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New TODO</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h2>Input new TODO</h2>
+<div>
+    <form th:method="POST" th:action="@{/todoList}" th:object="${todo}">
+        <label for="description">Description: </label>
+        <input type="text" th:field="*{description}" id="description"/>
+        <br/>
+        <label for="description">Author ID: </label>
+        <input type="text" th:field="*{author.id}" id="authorId"/>
+        <br/>
+        <label for="description">Author name: </label>
+        <input type="text" th:field="*{author.name}" id="authorName"/>
+        <br/>
+
+        <input type="submit" value="Create!"/>
+    </form>
+</div>
+</body>
+</html>
